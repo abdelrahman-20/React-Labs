@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useSelector, useDispatch } from "react-redux";
+import type { RootState } from "./store";
+import Login from "./components/Login.tsx";
+import Dashboard from "./components/Dashboard.tsx";
+import { logout } from "./slices/authSlice";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const auth = useSelector((s: RootState) => s.auth);
+  const dispatch = useDispatch();
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app-root">
+      {auth.loggedIn ? (
+        <>
+          <header className="app-header">
+            <div>
+              Welcome, <strong>{auth.username}</strong>
+            </div>
+            <button className="logout-btn" onClick={() => dispatch(logout())}>
+              Logout
+            </button>
+          </header>
+          <main>
+            <Dashboard />
+          </main>
+        </>
+      ) : (
+        <Login />
+      )}
+    </div>
+  );
 }
-
-export default App
