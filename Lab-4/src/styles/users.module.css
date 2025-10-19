@@ -1,0 +1,28 @@
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.listItem {
+  margin: 0.5rem 0;
+}
+
+.link {
+  text-decoration: none;
+  color: #0078d4;
+  font-weight: 500;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.refreshBtn {
+  margin-bottom: 1rem;
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}

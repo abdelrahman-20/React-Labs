@@ -1,0 +1,29 @@
+.container {
+  background-color: #fafafa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.title {
+  color: #0078d4;
+  margin-bottom: 0.5rem;
+}
+
+.email {
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.posts {
+  list-style: none;
+  padding: 0;
+}
+
+.postItem {
+  background: white;
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+  padding: 0.6rem;
+  border: 1px solid #ddd;
+}
